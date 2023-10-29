@@ -5,6 +5,7 @@ fn main() {
 }
 
 fn solution1() {
+    // https://projecteuler.net/problem=1
     // Find sum of multiples of 3 or 5 below 1,000
     let mut sum = 0;
     let mut counter = 1;
@@ -18,6 +19,7 @@ fn solution1() {
 }
 
 fn solution2() {
+    // https://projecteuler.net/problem=2
     // Find sum of all even fibonacci numbers <= 4,000,000
     // (Doesn't matter for this particular exercise, but starts the sequence with 1 and 2)
     // See notes:
