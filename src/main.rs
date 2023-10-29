@@ -2,6 +2,7 @@ fn main() {
     // TODO move to separate files, cli specifies which solution to run
     solution_1();
     solution_2();
+    solution_4();
 }
 
 fn solution_1() {
@@ -34,4 +35,47 @@ fn solution_2() {
         prev = tmp;
     }
     println!("Sum of even fibonacci <= 4,000,000: {sum}");
+}
+
+fn solution_4() {
+    // https://projecteuler.net/problem=4
+    // Find the largest palindrome made from the product of two 3-digit numbers
+    // TODO clean up the maths
+    let mut term1 = 999;
+    let mut term2 = 999;
+    let mut smallest_term = 100;
+    let mut largest_palindrome = 0;
+    while term1 >= smallest_term {
+        while term2 >= smallest_term {
+            let product = term1 * term2;
+            if is_palindrome(product) {
+                if product > largest_palindrome {
+                    largest_palindrome = product;
+                }
+                break;
+            }
+            term2 -= 1;
+        }
+        term1 -= 1;
+        term2 = term1;
+    }
+    if largest_palindrome == 0 {
+        println!("Couldn't find a palindrome");
+    } else {
+        println!("Largest palindrome from products of two 3-digit numbers: {largest_palindrome}");
+    }
+}
+
+// TODO move to separate module thingy and add tests
+fn is_palindrome(number: i32) -> bool {
+    let s = number.to_string();
+    let b = s.as_bytes();
+    let half_length = b.len() / 2;
+    for i in 0..half_length {
+        let j = b.len() - i - 1;
+        if b[i] != b[j] {
+            return false;
+        }
+    }
+    return true;
 }
