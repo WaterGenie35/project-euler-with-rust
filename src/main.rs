@@ -1,10 +1,10 @@
 fn main() {
     // TODO move to separate files, cli specifies which solution to run
-    solution1();
-    solution2();
+    solution_1();
+    solution_2();
 }
 
-fn solution1() {
+fn solution_1() {
     // https://projecteuler.net/problem=1
     // Find sum of multiples of 3 or 5 below 1,000
     let mut sum = 0;
@@ -18,7 +18,7 @@ fn solution1() {
     println!("Sum of multiples of 3 or 5 below 1,000: {sum}");
 }
 
-fn solution2() {
+fn solution_2() {
     // https://projecteuler.net/problem=2
     // Find sum of all even fibonacci numbers <= 4,000,000
     // (Doesn't matter for this particular exercise, but starts the sequence with 1 and 2)
